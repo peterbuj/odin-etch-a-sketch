@@ -1,2 +1,2 @@
-# odin-etch-a-sketch
+# odin-zinga-sketch
 The Etch-a-Sketch project for Odin
