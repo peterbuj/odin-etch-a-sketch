@@ -8,14 +8,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="container">
-
-
-
-
-    
-    </div>
-        
+    <div id="site">
+    <div id="container"></div>
+    <div id="ui"></div>
+</div>
 </body>
 
 <script>
@@ -23,12 +19,28 @@
 const container = document.getElementById("container")
 const grid = []
 
+const ui = document.getElementById("ui")
+const wipeBoard = document.createElement("button")
+wipeBoard.setAttribute("id", "wipeBtn")
+wipeBoard.textContent = "Reset"
+
+ui.appendChild(wipeBoard)
+
+wipeBoard.addEventListener("click", function (e) {
+    for(i=0; i<256; i++) {
+        grid[i].classList.remove('hover')
+    }
+})
+
 function genBoard() {
-    for(i=0; i<16; i++) {
+    for(i=0; i<256; i++) {
     grid[i] = document.createElement("div")
     grid[i].setAttribute('id','grid' + i)
     grid[i].classList.add('board')
     container.appendChild(grid[i])
+    grid[i].addEventListener('mouseover', function (e) {
+        e.target.classList.add('hover')
+    })
     }
 }
 
