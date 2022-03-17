@@ -13,10 +13,13 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 144px;
-    height: 144px;
     justify-content: center;
     align-items: center;
+    padding: 30px;
+    padding-left: 75px;
+    padding-right: 75px;
+    border: solid;
+    border-radius: 96px;
 }
 
 #header {
