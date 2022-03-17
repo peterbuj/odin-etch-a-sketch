@@ -9,9 +9,10 @@
 </head>
 <body>
     <div id="site">
-    <div id="container"></div>
-    <div id="ui"></div>
-</div>
+        <div id="header"></div>
+        <div id="container"></div>
+        <div id="ui"></div>
+    </div>
 </body>
 
 <script>
@@ -20,17 +21,31 @@ const container = document.getElementById("container")
 const grid = []
 
 const ui = document.getElementById("ui")
-const wipeBoard = document.createElement("button")
-wipeBoard.setAttribute("id", "wipeBtn")
-wipeBoard.textContent = "Reset"
+const wipeBtn = document.createElement("button")
+wipeBtn.setAttribute("id", "wipeBtn")
+wipeBtn.textContent = "Reset"
+var inputVal = 0
 
-ui.appendChild(wipeBoard)
+ui.appendChild(wipeBtn)
 
-wipeBoard.addEventListener("click", function (e) {
+wipeBtn.addEventListener("click", function (e) {
     for(i=0; i<256; i++) {
         grid[i].classList.remove('hover')
-    }
+
+    } let inputVal = prompt("How big would you like your new etch-a-sketch to be?") 
+        if(inputVal>100||isNaN(inputVal)==true||inputVal<1) {
+            alert("Sorry, I can only build you a grid with numbers between 1 and 100!")
+
+        } else {
+            for(i=0; i<grid.length; i++) {
+            container.removeChild(grid[i])
+                } for(i=0; i<(inputVal*inputVal); i++) {
+                    container.appendChild(grid[i])
+                    document.getElementById('container').style.height = (inputVal*inputVal)+44;
+                    document.getElementById('container').style.width = (inputVal*inputVal)+44;
+                }}
 })
+
 
 function genBoard() {
     for(i=0; i<256; i++) {

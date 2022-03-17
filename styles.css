@@ -1,8 +1,26 @@
+#site {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#ui {
+    margin: 20px;
+}
+
 #container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     width: 144px;
+    height: 144px;
+    justify-content: center;
+    align-items: center;
+}
+
+#header {
+    height: 100px;
 }
 
 .board {
