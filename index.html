@@ -37,6 +37,8 @@ var oldGrid = 0
 wipeBtn.addEventListener("click", function (e) {
     for(i=0; i<grid.length; i++) {
         grid[i].classList.remove('hover')
+        currentOpacity[i] = 0
+        grid[i].style.opacity = 1
 
     } let inputVal = prompt("How big would you like your new etch-a-sketch to be?") 
         if(inputVal>100||isNaN(inputVal)==true||inputVal<1) {
@@ -52,22 +54,23 @@ wipeBtn.addEventListener("click", function (e) {
             container.style.height = (inputVal*9)+'px'
             container.style.width = (inputVal*9)+'px'
             }
-
     oldGrid = (inputVal*inputVal)
-    
 })
 
-currentOpacity = 0
+currentOpacity = []
+gridOpacity = []
 
 function genBoard() {
     for(i=0; i<10000; i++) {
     grid[i] = document.createElement("div")
-    grid[i].setAttribute('id','grid' + i)
+    grid[i].setAttribute('id',i)
+    currentOpacity[i] = 0
     grid[i].classList.add('board')
     grid[i].addEventListener('mouseover', function (e) {
-        currentOpacity = currentOpacity +.1
+        j = e.target.getAttribute('id')
+        currentOpacity[j] = currentOpacity[j] +.1
         e.target.classList.add('hover')
-        e.target.style.opacity = currentOpacity
+        e.target.style.opacity = currentOpacity[j]
     })
     }
     for(i=0; i<256; i++) {
@@ -79,13 +82,9 @@ function genBoard() {
 genBoard()
 
 
+
 </script>
 
 
 
 </html>
-<pseudocode>
-
-
-
-</pseudocode>
